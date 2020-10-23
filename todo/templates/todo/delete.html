@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+    body{
+        margin: 10rem 5rem;
+        background: #42275a;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #734b6d, #42275a);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: white;
+        text-align: center;
+    }
+    p{
+        font-size: 30px;
+    }
+    .aForm {
+        width: 100%;
+        background:darkslategray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 30px 10px;
+        box-shadow: 1px 2px 12px 8px rgb(51, 54, 54);
+       align-items: center;
+       
+    }
+
+</style>
+
+<div class="container">
+    <p>Are you sure you want to delete '{{item}}' ?</p>
+
+    
+    <form class="aForm" method="POST" action="">
+        {% csrf_token%}
+        <!-- <input type="submit" name="Confirm"> -->
+        <div>
+            <button class="btn btn-outline-warning  mx-2" type="submit">Confirm</button>
+            <a class="btn btn-secondary mx-2" href="{% url 'list' %}">Cancel</a>
+        </div>
+    </form>
+</div>

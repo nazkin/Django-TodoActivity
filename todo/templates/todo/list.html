@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+    body{
+        margin: 10rem 5rem;
+        background: #42275a;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #734b6d, #42275a);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+    input {
+        min-width: 15rem;
+        width: 50%;
+        
+    }
+    p, strike {
+        font-size: 22px;
+        padding: 0;
+        margin: 0;
+    }
+    .aForm {
+        width: 100%;
+        background:darkslategray;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 30px 10px;
+        box-shadow: 1px 2px 12px 8px rgb(51, 54, 54);
+    }
+    .item {
+        background: slategrey;
+        color: white;
+        padding: 20px 0px;
+        box-shadow: 1px 2px 12px 1px darkslategray;
+    }
+    .buton{
+        border-radius: 0% !important;
+        font-family:"Verdana" !important;
+    }
+    .buton:hover{
+        box-shadow: 0.5px 0.5px 2px 2px darkgrey !important;
+    }
+
+
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <form class="aForm" method="POST" action="/">
+                {% csrf_token %}
+                {{form.title}}
+                <button class="btn btn-outline-light ml-5 buton" type="submit">Add Task</button>
+            </form>
+        </div>
+    </div>
+
+    
+    {% for task in tasks %}
+    <div class="row item m-5">
+        <div class="col-8 text-center">
+            {% if task.is_complete == True %}
+            <strike>{{task}}</strike>
+            {% else %}
+            <p>{{task}}</p>
+            {% endif %}
+        </div>
+        <div class="col-4 text-center">
+            <a class="btn btn-info mx-3 btn-sm buton" href="{% url 'manage' task.id %}">Update</a>
+            <a class="btn btn-outline-danger mx-3 btn-sm buton" href="{% url 'remove' task.id %}">Remove</a>
+        </div>
+    </div>
+
+    
+    {% endfor %}
+</div>

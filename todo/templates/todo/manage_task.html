@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+    body{
+        margin: 10rem 5rem;
+        background: #42275a;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #734b6d, #42275a);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: white;
+        text-align: center;
+    }
+
+    .aForm {
+        width: 100%;
+        background:darkslategray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 30px 10px;
+        box-shadow: 1px 2px 12px 8px rgb(51, 54, 54);
+       align-items: center;
+    }
+    .item {
+        background: slategrey;
+        color: white;
+        padding: 20px 0px;
+        box-shadow: 1px 2px 12px 1px darkslategray;
+    }
+    .buton{
+        border-radius: 0% !important;
+        font-family:"Verdana" !important;
+    }
+    .buton:hover{
+        box-shadow: 0.5px 0.5px 2px 2px darkgrey !important;
+    }
+    input[type="checkbox"]{
+        min-width: 50px;
+        min-height: 50px;
+        margin: 30px;
+    }
+    input[type="text"]{
+        min-width: 20rem;
+        width: 70%;
+        margin: 30px;
+    }
+
+
+</style>
+
+<div class="container">
+    <h3>Manage Tasks</h3>
+    <form class="aForm" method="POST" action="" >
+        {% csrf_token %}
+    
+        {{form}}
+        <button class="btn btn-warning buton" type="submit" name="manage task">Update</button>
+    </form>
+</div>
+
